@@ -1,0 +1,524 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PPDB TECNOLOGR BY IKY School</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --cyan: #00eaff;
+  --blue: #176bff;
+  --bg: #050b1c;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: white;
+  background:
+    radial-gradient(ellipse at top, #123b6a, transparent 60%),
+    var(--bg);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+#particles {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 7%;
+  background: #061126cc;
+  border-bottom: 1px solid #00eaff44;
+}
+
+.logo {
+  font-weight: 900;
+  color: var(--cyan);
+  font-size: 20px;
+  text-shadow: 0 0 15px var(--cyan);
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+  margin-left: 15px;
+}
+
+.hero {
+  text-align: center;
+  padding: 55px 18px 25px;
+}
+
+.badge {
+  display: inline-block;
+  color: var(--cyan);
+  border: 1px solid #00eaff88;
+  padding: 9px 17px;
+  border-radius: 30px;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+h1 {
+  font-size: clamp(32px, 7vw, 64px);
+  margin: 22px 0 12px;
+  line-height: 1.1;
+}
+
+h1 span {
+  color: var(--cyan);
+  text-shadow: 0 0 30px #00bfff99;
+}
+
+.hero p {
+  color: #b9cbe4;
+  line-height: 1.7;
+  max-width: 550px;
+  margin: auto;
+}
+
+.school-scene {
+  width: min(90%, 600px);
+  margin: 30px auto;
+  height: 190px;
+  perspective: 800px;
+}
+
+.school-building {
+  width: 230px;
+  height: 130px;
+  margin: auto;
+  position: relative;
+  top: 20px;
+  background: linear-gradient(120deg, #0d4778, #09213d);
+  border: 2px solid var(--cyan);
+  box-shadow: 0 0 35px #00aaff55;
+  transform: rotateY(-15deg) rotateX(5deg);
+  animation: float 4s ease-in-out infinite;
+}
+
+.school-building::before {
+  content: "TECNOLOGY BY IKY SCHOOL";
+  position: absolute;
+  top: -25px;
+  left: 0;
+  width: 100%;
+  color: var(--cyan);
+  font-weight: bold;
+  font-size: 12px;
+  text-align: center;
+}
+
+.school-building::after {
+  content: "";
+  position: absolute;
+  left: 88px;
+  bottom: 0;
+  width: 48px;
+  height: 65px;
+  border: 2px solid #00eaff;
+  background: #00cfff33;
+}
+
+.windows {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  padding-top: 25px;
+}
+
+.windows i {
+  width: 28px;
+  height: 28px;
+  display: block;
+  background: #00eaff;
+  box-shadow: 0 0 15px #00eaff;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: rotateY(-15deg) rotateX(5deg) translateY(0);
+  }
+  50% {
+    transform: rotateY(15deg) rotateX(-4deg) translateY(-13px);
+  }
+}
+
+.layout {
+  width: min(92%, 950px);
+  margin: 0 auto 60px;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 25px;
+  align-items: start;
+}
+
+.info, .form-card {
+  background: linear-gradient(145deg, #102847dd, #071226ee);
+  border: 1px solid #00d9ff55;
+  border-radius: 20px;
+  padding: 26px;
+  box-shadow: 0 15px 45px #0007;
+  transition: transform .25s, box-shadow .25s;
+}
+
+.info:hover, .form-card:hover {
+  box-shadow: 0 0 28px #00bfff33;
+}
+
+h2 {
+  font-size: 22px;
+  color: var(--cyan);
+  margin-top: 0;
+}
+
+.feature {
+  padding: 13px 0;
+  border-bottom: 1px solid #ffffff15;
+  color: #d8e8ff;
+  line-height: 1.5;
+}
+
+.feature:last-child {
+  border: 0;
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  margin: 15px 0 7px;
+  color: #c7e5ff;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 13px;
+  border-radius: 9px;
+  border: 1px solid #2b5275;
+  background: #071427;
+  color: white;
+  outline: none;
+  font-size: 14px;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--cyan);
+  box-shadow: 0 0 12px #00dfff33;
+}
+
+button {
+  cursor: pointer;
+  border: 0;
+  padding: 14px;
+  border-radius: 9px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.submit {
+  width: 100%;
+  margin-top: 22px;
+  color: #00111c;
+  background: linear-gradient(100deg, #00eaff, #488aff);
+  box-shadow: 0 0 20px #00bfff44;
+}
+
+.submit:hover {
+  filter: brightness(1.2);
+}
+
+#result {
+  display: none;
+  margin-top: 20px;
+  border: 1px solid var(--cyan);
+  background: #052d3c;
+  padding: 18px;
+  border-radius: 12px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  color: #7896b5;
+  font-size: 12px;
+  border-top: 1px solid #00eaff22;
+}
+
+@media(max-width: 700px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  nav {
+    padding: 18px;
+  }
+
+  nav a {
+    margin-left: 8px;
+  }
+
+  .info, .form-card {
+    padding: 21px;
+  }
+}
+
+@media(prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="particles"></canvas>
+
+<nav>
+  <div class="logo">✦ TECNOLOGY BY IKY SCHOOL</div>
+  <div>
+    <a href="#beranda">Beranda</a>
+    <a href="#daftar">Daftar</a>
+  </div>
+</nav>
+
+<section class="hero" id="beranda">
+  <div class="badge">PENERIMAAN SISWA BARU</div>
+
+  <h1>Masa Depan<br>
+    <span>Dimulai Di Sini.</span>
+  </h1>
+
+  <p>
+    Bergabunglah dengan generasi baru yang kreatif,
+    inovatif, berprestasi, dan siap menghadapi masa depan.
+  </p>
+
+  <div class="school-scene">
+    <div class="school-building">
+      <div class="windows">
+        <i></i><i></i><i></i>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main class="layout">
+
+  <section class="info">
+    <h2>✨ Mengapa Kami?</h2>
+
+    <div class="feature">
+      🚀 <b>Pembelajaran Modern</b><br>
+      Teknologi dan kreativitas dalam belajar.
+    </div>
+
+    <div class="feature">
+      🎓 <b>Guru Profesional</b><br>
+      Mendukung perkembangan setiap siswa.
+    </div>
+
+    <div class="feature">
+      💻 <b>Laboratorium Digital</b><br>
+      Belajar teknologi, sains, dan komputer.
+    </div>
+
+    <div class="feature">
+      🌟 <b>Pengembangan Bakat</b><br>
+      Kembangkan potensi dan prestasi.
+    </div>
+
+    <div class="feature">
+      📋 <b>Pendaftaran Online</b><br>
+      Isi formulir langsung melalui perangkatmu.
+    </div>
+  </section>
+
+  <section class="form-card" id="daftar">
+    <h2>📝 Formulir Pendaftaran</h2>
+    <p style="color:#a9c8e5;font-size:13px">
+      Isi data calon siswa dengan benar.
+    </p>
+
+    <form id="registration">
+
+      <label for="nama">Nama lengkap</label>
+      <input id="nama" name="nama"
+        placeholder="Masukkan nama lengkap"
+        required maxlength="100">
+
+      <label for="nisn">NISN (jika sudah ada)</label>
+      <input id="nisn" name="nisn"
+        placeholder="Nomor induk siswa"
+        inputmode="numeric" maxlength="20">
+
+      <label for="tanggal">Tanggal lahir</label>
+      <input id="tanggal" name="tanggal"
+        type="date" required>
+
+      <label for="jk">Jenis kelamin</label>
+      <select id="jk" name="jk" required>
+        <option value="">Pilih jenis kelamin</option>
+        <option>Laki-laki</option>
+        <option>Perempuan</option>
+      </select>
+
+      <label for="sekolah">Asal sekolah</label>
+      <input id="sekolah" name="sekolah"
+        placeholder="Nama sekolah sebelumnya" required>
+
+      <label for="jenjang">Jenjang tujuan</label>
+      <select id="jenjang" name="jenjang" required>
+        <option value="">Pilih jenjang</option>
+        <option>SD</option>
+        <option>SMP</option>
+        <option>SMA</option>
+        <option>SMK</option>
+      </select>
+
+      <label for="jurusan">Jurusan (jika tersedia)</label>
+      <select id="jurusan" name="jurusan">
+        <option value="">Tidak memilih / belum tersedia</option>
+        <option>IPA</option>
+        <option>IPS</option>
+        <option>Rekayasa Perangkat Lunak</option>
+        <option>Teknik Komputer dan Jaringan</option>
+        <option>Desain Komunikasi Visual</option>
+        <option>Akuntansi</option>
+        <option>Lainnya</option>
+      </select>
+
+      <label for="alamat">Alamat</label>
+      <textarea id="alamat" name="alamat"
+        rows="3" placeholder="Alamat tempat tinggal"
+        required></textarea>
+
+      <label for="wali">Nama orang tua / wali</label>
+      <input id="wali" name="wali"
+        placeholder="Nama orang tua atau wali" required>
+
+      <label for="kontak">Nomor HP orang tua / wali</label>
+      <input id="kontak" name="kontak"
+        type="tel" placeholder="Nomor yang dapat dihubungi"
+        required maxlength="20">
+
+      <button class="submit" type="submit">
+        ✦ KIRIM PENDAFTARAN
+      </button>
+    </form>
+
+    <div id="result" role="status"></div>
+  </section>
+
+</main>
+
+<footer>
+  TECNOLOGY BY SCHOOL · SISTEM PENDAFTARAN DEMO<br>
+  Website demonstrasi berbasis HTML, CSS, dan JavaScript
+</footer>
+
+<script>
+// PARTIKEL ANIMASI
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+let particles = [];
+
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  particles = Array.from({length: 65}, () => ({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    r: Math.random() * 2 + 0.5,
+    speed: Math.random() * 0.7 + 0.2
+  }));
+}
+
+function animateParticles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  particles.forEach(p => {
+    p.y -= p.speed;
+
+    if (p.y < 0) {
+      p.y = canvas.height;
+      p.x = Math.random() * canvas.width;
+    }
+
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.fillStyle = "#00dfff";
+    ctx.shadowBlur = 10;
+    ctx.shadowColor = "#00dfff";
+    ctx.fill();
+  });
+
+  ctx.shadowBlur = 0;
+  requestAnimationFrame(animateParticles);
+}
+
+window.addEventListener("resize", resize);
+resize();
+animateParticles();
+
+// FORM PENDAFTARAN DEMO
+document.getElementById("registration")
+.addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const nama = document.getElementById("nama").value.trim();
+  const jenjang = document.getElementById("jenjang").value;
+  const result = document.getElementById("result");
+
+  if (!nama || !jenjang) {
+    alert("Mohon lengkapi data wajib.");
+    return;
+  }
+
+  const nomor = "PPDB-" +
+    Math.random().toString(36).substring(2, 8).toUpperCase();
+
+  result.style.display = "block";
+  result.replaceChildren();
+
+  const title = document.createElement("h3");
+  title.textContent = "✅ DATA BERHASIL DIPERIKSA";
+
+  const greeting = document.createElement("p");
+  greeting.textContent = "Nama calon siswa: " + nama;
+
+  const level = document.createElement("p");
+  level.textContent = "Jenjang tujuan: " + jenjang;
+
+  const code = document.createElement("p");
+  code.textContent = "Nomor demo: " + nomor;
+
+  const note = document.createElement("small");
+  note.textContent =
+    "Ini hanya simulasi di browser. Data belum dikirim atau disimpan ke sekolah.";
+
+  result.append(title, greeting, level, code, note);
+  result.scrollIntoView({behavior: "smooth", block: "center"});
+});
+</script>
+
+</body>
+</html>
